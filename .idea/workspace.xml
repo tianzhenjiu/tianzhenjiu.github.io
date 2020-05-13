@@ -1,74 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="635835e1-4967-419e-b8f1-4eafb535780f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_includes/baidu.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_includes/cnzz.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_includes/content.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_includes/copyright.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_includes/favicon.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_includes/footer.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_includes/google.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_includes/header.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_includes/header_title.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_includes/statistics_body.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_includes/statistics_head.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_layouts/about.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_layouts/archive.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_layouts/articles.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_layouts/categories.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_layouts/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_layouts/post.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_sass/_about.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_sass/_archive.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_sass/_articles.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_sass/_categories.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_sass/_common.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_sass/_index.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_sass/_markdown.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_sass/_post.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/_sass/_prism-line-numbers.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/about.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/archive.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/articles.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/css/about.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/css/archive.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/css/articles.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/css/categories.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/css/index.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/css/markdown.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/css/post.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/css/prism-line-numbers.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/css/prism.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/img/avatar.webp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/img/favicon.ico" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/copy_with_declaration.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/lock_copy.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/lock_menu.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/post_content_init.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/prism-line-numbers.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/prism.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/timeline.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/zooming.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/categories.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/docs/reward.webp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/docs/screenshot.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/feed.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/index.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/jekyll-theme-minimalism.gemspec" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/script/bootstrap" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/script/build" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/script/cibuild" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/script/new" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/script/new.ps1" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/script/release" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/script/serve" afterPath="" />
-    </list>
+    <list default="true" id="635835e1-4967-419e-b8f1-4eafb535780f" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,11 +34,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sale.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sale.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sale.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
               <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adapter-latest.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/adapter-latest.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -179,7 +122,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1400" />
@@ -340,15 +283,15 @@
       <updated>1589188636534</updated>
       <workItem from="1589188638016" duration="664000" />
       <workItem from="1589246663384" duration="599000" />
-      <workItem from="1589332638927" duration="1341000" />
+      <workItem from="1589332638927" duration="1499000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2604000" />
+    <option name="totallyTimeSpent" value="2762000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -778,6 +721,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapter-latest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
