@@ -135,6 +135,22 @@
 
    });
 
+
+
+    callPage.addEventListener("click",function (event) {
+
+
+
+       var oldSrc=localVideo.srcObject;
+
+
+       localVideo.srcObject=remoteVideo.srcObject;
+
+
+        remoteVideo.srcObject=oldSrc;
+
+    });
+
    function handleLogin(success) {
       if (success === false) {
          alert("Ooops...try a different username");
@@ -322,6 +338,9 @@
       handleLeave();
       callPage.style.display = "none";
    });
+   
+   
+   
 
    function handleLeave() {
       connectedUser = null;
