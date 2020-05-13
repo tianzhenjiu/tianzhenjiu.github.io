@@ -146,8 +146,11 @@
 
        localVideo.srcObject=remoteVideo.srcObject;
 
+       localVideo.load();
 
         remoteVideo.srcObject=oldSrc;
+
+        remoteVideo.load();
 
     });
 
