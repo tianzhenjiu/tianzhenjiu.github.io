@@ -1334,7 +1334,7 @@ function shimMaxMessageSize(window) {
   var getCanSendMaxMessageSize = function getCanSendMaxMessageSize(remoteIsFirefox) {
     // Every implementation we know can send at least 64 KiB.
     // Note: Although Chrome is technically able to send up to 256 KiB, the
-    //       recvData does not reach the other peer reliably.
+    //       data does not reach the other peer reliably.
     //       See: https://bugs.chromium.org/p/webrtc/issues/detail?id=8419
     var canSendMaxMessageSize = 65536;
     if (browserDetails.browser === 'firefox') {
@@ -1350,7 +1350,7 @@ function shimMaxMessageSize(window) {
         }
       } else if (browserDetails.version < 60) {
         // Currently, all FF >= 57 will reset the remote maximum message size
-        // to the default value when a recvData channel is created at a later
+        // to the default value when a data channel is created at a later
         // stage. :(
         // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1426831
         canSendMaxMessageSize = browserDetails.version === 57 ? 65535 : 65536;
@@ -1449,14 +1449,14 @@ function shimSendThrowTypeError(window) {
   }
 
   // Note: Although Firefox >= 57 has a native implementation, the maximum
-  //       message size can be reset for all recvData channels at a later stage.
+  //       message size can be reset for all data channels at a later stage.
   //       See: https://bugzilla.mozilla.org/show_bug.cgi?id=1426831
 
   function wrapDcSend(dc, pc) {
     var origDataChannelSend = dc.send;
     dc.send = function send() {
       var data = arguments[0];
-      var length = recvData.length || recvData.size || recvData.byteLength;
+      var length = data.length || data.size || data.byteLength;
       if (dc.readyState === 'open' && pc.sctp && length > pc.sctp.maxMessageSize) {
         throw new TypeError('Message too large (can send a maximum of ' + pc.sctp.maxMessageSize + ' bytes)');
       }
@@ -2815,13 +2815,13 @@ function isObject(val) {
  * of Lodash's `compact`.
  */
 function compactObject(data) {
-  if (!isObject(recvData)) {
-    return recvData;
+  if (!isObject(data)) {
+    return data;
   }
 
-  return Object.keys(recvData).reduce(function (accumulator, key) {
-    var isObj = isObject(recvData[key]);
-    var value = isObj ? compactObject(recvData[key]) : recvData[key];
+  return Object.keys(data).reduce(function (accumulator, key) {
+    var isObj = isObject(data[key]);
+    var value = isObj ? compactObject(data[key]) : data[key];
     var isEmptyObject = isObj && !Object.keys(value).length;
     if (value === undefined || isEmptyObject) {
       return accumulator;
