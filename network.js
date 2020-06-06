@@ -1,5 +1,3 @@
-
-
 var configuration = {
     "iceServers": [
         {
@@ -17,22 +15,22 @@ var configuration = {
 };
 
 
-
-function getQueryVariable(variable)
-{
+function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split("&");
-    for (var i=0;i<vars.length;i++) {
+    for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split("=");
-        if(pair[0] == variable){return pair[1];}
+        if (pair[0] == variable) {
+            return pair[1];
+        }
     }
-    return(false);
+    return (false);
 }
 
-var  roomId=getQueryVariable("roomId");
-var  userId=getQueryVariable("userId");
-var videoEle=document.getElementById("localVideo");
-var remoteEle=document.getElementById("remoteVideo");
+var roomId = getQueryVariable("roomId");
+var userId = getQueryVariable("userId");
+var videoEle = document.getElementById("localVideo");
+var remoteEle = document.getElementById("remoteVideo");
 
 /**
  *
@@ -40,47 +38,44 @@ var remoteEle=document.getElementById("remoteVideo");
  * 这个是通讯的核心
  * @type {RTCPeerConnection}
  */
-myConnect=new RTCPeerConnection(configuration,{optional: [{RtpDataChannels: true}]});
+myConnect = new RTCPeerConnection(configuration, {optional: [{RtpDataChannels: true}]});
 
-dataChannel = myConnect.createDataChannel("channel1", {reliable:true});
+dataChannel = myConnect.createDataChannel("channel1", {reliable: true});
 /**
  *
  * websocket 是沟通双飞SDP以及公网IP的作用
  * @type {WebSocket}
  */
-var websocket=new WebSocket("wss://redtb-test.sixeco.com/api/v1.0/redt_b_ws/customerService/"+roomId+"/"+userId+"");
+var websocket = new WebSocket("wss://redtb-test.sixeco.com/api/v1.0/redt_b_ws/customerService/" + roomId + "/" + userId + "");
 
-websocket.onclose=function (evt) {
+websocket.onclose = function (evt) {
     console.log("连接关闭");
 }
 
-websocket.onopen=function (evt) {
+websocket.onopen = function (evt) {
     console.log("连接上了,开始初始化");
     startInit();
 }
 
 
-websocket.onmessage=function (evt) {
+websocket.onmessage = function (evt) {
 
 
-
-
-    console.log("recv"+evt.data.toString());
-    var recvData={};
-    try{
-        recvData=JSON.parse(evt.data);
-    }catch (e){
+    console.log("recv" + evt.data.toString());
+    var recvData = {};
+    try {
+        recvData = JSON.parse(evt.data);
+    } catch (e) {
         console.log(e.toString())
         return;
     }
 
 
-    if(!recvData.type)
-    {
+    if (!recvData.type) {
         return;
     }
 
-    switch (recvData.type){
+    switch (recvData.type) {
 
 
         case "offer":
@@ -102,26 +97,25 @@ websocket.onmessage=function (evt) {
 }
 
 
-
 function handleOnOff(remoteSdp) {
-
 
 
     setRemoteSdp(remoteSdp);
     myConnect.createAnswer(function (sdp) {
-        sendTextMsg({"type":"answer","data":sdp});
+        sendTextMsg({"type": "answer", "data": sdp});
         setLocalSdp(sdp);
-    },function (error) {
-        console.log("获取answer-SDP出错"+error.toString())
+    }, function (error) {
+        console.log("获取answer-SDP出错" + error.toString())
     });
 
 }
+
 function handleOnAnswer(remoteSdp) {
     setRemoteSdp(remoteSdp);
 }
 
 
-function setLocalSdp(sdp){
+function setLocalSdp(sdp) {
 
     myConnect.setLocalDescription(sdp,
         function (success) {
@@ -132,7 +126,7 @@ function setLocalSdp(sdp){
 }
 
 
-function setRemoteSdp(sdp){
+function setRemoteSdp(sdp) {
 
     myConnect.setRemoteDescription(new RTCSessionDescription(sdp),
         function (success) {
@@ -141,6 +135,7 @@ function setRemoteSdp(sdp){
             console.log("设置本地sdp出错")
         });
 }
+
 /**
  * send smg to server
  * @param obj
@@ -150,54 +145,48 @@ function sendTextMsg(obj) {
 }
 
 
+function startInit() {
+
+    var constraints = {
+        video: true,
+        audio: true
+    };
 
 
+    navigator.mediaDevices.getUserMedia(constraints).then(stream=> {
 
-
-
-
-
-
-
-function  startInit(){
-
-
-    navigator.getUserMedia({ video: true, audio: true },function (stream){
         myConnect.addStream(stream);
-        videoEle.srcObject=stream;
-
-
-
+        videoEle.srcObject = stream;
         myConnect.createOffer(function (sdp) {
             console.log("获取到sdp");
-            sendTextMsg({type:"offer","data":sdp});
+            sendTextMsg({type: "offer", "data": sdp});
             setLocalSdp(sdp)
 
-        },function (error) {
+        }, function (error) {
 
             console.log("获取sdp出错");
-            console.log("error"+error)
+            console.log("error" + error)
         });
-
-
-    },function (error) {
-        console.log("获取设备出错了"+error);
+    }).catch(function (e) {
+        alert("Error. WebRTC is not supported!");
+        alert(e);
     });
+    ;
 
-    myConnect.onicecandidate=function (evt) {
+    myConnect.onicecandidate = function (evt) {
 
-        sendTextMsg({"type":"candidate","data":evt.candidate});
+        sendTextMsg({"type": "candidate", "data": evt.candidate});
         console.log("开始获取IP");
         console.log(evt.candidate);
     }
 
 
-    myConnect.onaddstream=function (evt) {
+    myConnect.onaddstream = function (evt) {
         remoteEle.srcObject = evt.stream;
     }
 
 
-    dataChannel.onmessage=function (msg) {
+    dataChannel.onmessage = function (msg) {
 
         console.log("get msg from datachannel")
     }
@@ -205,15 +194,15 @@ function  startInit(){
 }
 
 
-function  handleCandidate(candidate) {
+function handleCandidate(candidate) {
 
 
-    if(!candidate){
+    if (!candidate) {
         return;
     }
 
 
-    if(candidate["sdpMid"]||candidate["sdpMLineIndex"]){
+    if (candidate["sdpMid"] || candidate["sdpMLineIndex"]) {
         myConnect.addIceCandidate(new RTCIceCandidate(candidate));
     }
 
