@@ -45,7 +45,7 @@ var sendText=document.getElementById("sendText");
 //https://stackoverflow.com/questions/28227405/rtcdatachannel-with-google-channel-api
 var myConnect = new RTCPeerConnection(configuration, {optional: [{RtpDataChannels: false}]});
 
-var dataChannel=myConnect.createDataChannel("channel1", {reliable: true});;
+//var dataChannel=myConnect.createDataChannel("channel1", {reliable: true});;
 /**
  *
  * websocket 是沟通双飞SDP以及公网IP的作用
@@ -153,7 +153,7 @@ function sendTextMsg(obj) {
 function startInit() {
 
     var constraints = {
-        //video: true,
+        video: true,
         audio: true
     };
 
@@ -176,7 +176,7 @@ function startInit() {
         alert("Error. WebRTC is not supported!"+e.toString());
     });
 
-    initDatachannel();
+   // initDatachannel();
 
     myConnect.onicecandidate = function (evt) {
 
