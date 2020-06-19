@@ -31,6 +31,9 @@ var roomId = getQueryVariable("roomId");
 var userId = getQueryVariable("userId");
 var videoEle = document.getElementById("localVideo");
 var remoteEle = document.getElementById("remoteVideo");
+var sendBtn=document.getElementById("sendChannelMsg");
+var recvWrap=document.getElementById("recvMsgContent");
+var sendText=document.getElementById("sendText");
 
 /**
  *
@@ -38,9 +41,11 @@ var remoteEle = document.getElementById("remoteVideo");
  * 这个是通讯的核心
  * @type {RTCPeerConnection}
  */
-myConnect = new RTCPeerConnection(configuration, {optional: [{RtpDataChannels: true}]});
 
-dataChannel = myConnect.createDataChannel("channel1", {reliable: true});
+//https://stackoverflow.com/questions/28227405/rtcdatachannel-with-google-channel-api
+var myConnect = new RTCPeerConnection(configuration, {optional: [{RtpDataChannels: false}]});
+
+var dataChannel=myConnect.createDataChannel("channel1", {reliable: true});;
 /**
  *
  * websocket 是沟通双飞SDP以及公网IP的作用
@@ -148,7 +153,7 @@ function sendTextMsg(obj) {
 function startInit() {
 
     var constraints = {
-        video: true,
+        //video: true,
         audio: true
     };
 
@@ -168,10 +173,10 @@ function startInit() {
             console.log("error" + error)
         });
     }).catch(function (e) {
-        alert("Error. WebRTC is not supported!");
-        alert(e);
+        alert("Error. WebRTC is not supported!"+e.toString());
     });
-    ;
+
+    initDatachannel();
 
     myConnect.onicecandidate = function (evt) {
 
@@ -184,13 +189,39 @@ function startInit() {
     myConnect.onaddstream = function (evt) {
         remoteEle.srcObject = evt.stream;
     }
+}
+
+/**
+ * 初始化datachannel
+ */
+function  initDatachannel(){
+
+    dataChannel.onopen=function (evt) {
+        console.log("the datachannel is open"+evt);
+    }
 
 
     dataChannel.onmessage = function (msg) {
+        console.log("get msg from datachannel"+msg);
 
-        console.log("get msg from datachannel")
+        var tmpSpan=document.createElement("span");
+        tmpSpan.innerText=msg;
+        recvWrap.appendChild(tmpSpan);
+
     }
 
+    dataChannel.onerror=function (evt) {
+        console.log("datachannel出错"+evt.toString());
+    }
+
+    dataChannel.onclose=function (evt) {
+        alert("close the datachannel"+evt.toString());
+    }
+
+    sendBtn.onclick=function (evt) {
+        dataChannel.send( sendText.value);
+        sendText.value="";
+    }
 }
 
 

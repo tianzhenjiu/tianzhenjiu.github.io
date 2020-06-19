@@ -3,6 +3,14 @@
    <meta charset="utf-8">
    <title>音视频通信</title>
 
+    <style>
+
+        #callPage{
+
+            width: 100rem;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -10,6 +18,14 @@
    <div id="callPage" class="call-page">
       <video id="localVideo" autoplay playsinline muted></video>
       <video id="remoteVideo" autoplay playsinline></video>
+   </div>
+
+
+   <div id="chatPage" class="call-page">
+     <input type="text"  id="sendText"/>
+      <button id="sendChannelMsg">发送</button>
+      <div id="recvMsgContent">
+      </div>
    </div>
 
    <script src="adapter-latest.js"></script>
