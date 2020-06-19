@@ -126,7 +126,7 @@ function setLocalSdp(sdp) {
         function (success) {
             console.log("设置本地sdp成功")
         }, function (error) {
-            console.log("设置本地sdp出错")
+            console.log("设置本地sdp出错"+ + error.toString())
         });
 }
 
@@ -135,9 +135,9 @@ function setRemoteSdp(sdp) {
 
     myConnect.setRemoteDescription(new RTCSessionDescription(sdp),
         function (success) {
-            console.log("设置本地sdp成功")
+            console.log("设置远程 sdp成功")
         }, function (error) {
-            console.log("设置本地sdp出错")
+            console.log("设置远程sdp出错")
         });
 }
 
