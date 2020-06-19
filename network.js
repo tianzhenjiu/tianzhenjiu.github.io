@@ -126,7 +126,7 @@ function setLocalSdp(sdp) {
         function (success) {
             console.log("设置本地sdp成功")
         }, function (error) {
-            console.log("设置本地sdp出错"+ + error.toString())
+            console.log("设置本地sdp出错"+ error.toString())
         });
 }
 
@@ -137,7 +137,7 @@ function setRemoteSdp(sdp) {
         function (success) {
             console.log("设置远程 sdp成功")
         }, function (error) {
-            console.log("设置远程sdp出错")
+            console.log("设置远程sdp出错"+error.toString())
         });
 }
 
