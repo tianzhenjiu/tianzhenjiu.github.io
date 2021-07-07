@@ -51,7 +51,7 @@ var myConnect = new RTCPeerConnection(configuration, {optional: [{RtpDataChannel
  * websocket 是沟通双飞SDP以及公网IP的作用
  * @type {WebSocket}
  */
-var websocket = new WebSocket("wss://redtb-test.sixeco.com/api/v1.0/redt_b_ws/customerService/" + roomId + "/" + userId + "");
+var websocket = new WebSocket("wss://ws.k1aus.cn/customerService/" + roomId + "/" + userId + "");
 
 websocket.onclose = function (evt) {
     console.log("连接关闭");
