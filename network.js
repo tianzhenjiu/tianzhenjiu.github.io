@@ -51,7 +51,7 @@ var myConnect = new RTCPeerConnection(configuration, {optional: [{RtpDataChannel
  * websocket 是沟通双飞SDP以及公网IP的作用
  * @type {WebSocket}
  */
-var websocket = new WebSocket("wss://ws.k1aus.cn/customerService/" + roomId + "/" + userId + "");
+var websocket = new WebSocket("wss://www.k1aus.cn/webrtc/customerService" + roomId + "/" + userId + "");
 
 websocket.onclose = function (evt) {
     console.log("连接关闭");
