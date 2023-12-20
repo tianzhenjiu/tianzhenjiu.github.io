@@ -57,6 +57,9 @@ websocket.onopen = function (evt) {
     startInit();
 }
 
+websocket.onerror = function (evt) {
+    console.log("出错了",evt);
+}
 
 websocket.onmessage = function (evt) {
 
