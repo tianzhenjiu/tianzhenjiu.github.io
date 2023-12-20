@@ -1,14 +1,9 @@
 var configuration = {
     "iceServers": [
         {
-            "urls": ["turn:106.14.191.21:3478"],
-            "username": "Sixeco",
-            "credential": "Sixeco@123"
-
-        },
-        {
             "urls": [
-                "stun:106.14.191.21:3478"
+                "stun:stun.l.google.com:19302",
+                "stun:stun1.l.google.com:19302"
             ]
         },
     ],
@@ -51,7 +46,7 @@ var myConnect = new RTCPeerConnection(configuration, {optional: [{RtpDataChannel
  * websocket 是沟通双飞SDP以及公网IP的作用
  * @type {WebSocket}
  */
-var websocket = new WebSocket("wss://www.k1aus.cn/webrtc/customerService/" + roomId + "/" + userId + "");
+var websocket = new WebSocket("wss://digital-infobip-bridge.meza.talkdeskstg.com/webrtc/customerService/" + roomId + "/" + userId + "");
 
 websocket.onclose = function (evt) {
     console.log("连接关闭");
