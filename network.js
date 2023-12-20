@@ -49,7 +49,7 @@ var myConnect = new RTCPeerConnection(configuration, {optional: [{RtpDataChannel
 var websocket = new WebSocket("wss://digital-infobip-bridge.meza.talkdeskstg.com/webrtc/customerService/" + roomId + "/" + userId + "");
 
 websocket.onclose = function (evt) {
-    console.log("连接关闭");
+    console.log("连接关闭"+evt);
 }
 
 websocket.onopen = function (evt) {
